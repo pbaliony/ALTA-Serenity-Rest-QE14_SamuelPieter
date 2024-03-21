@@ -1,5 +1,6 @@
 package starter.postcodes;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
@@ -24,5 +25,19 @@ public class PostCodeStepDefinitions {
         restAssuredThat(response -> response.statusCode(200));
         restAssuredThat(response -> response.body(LocationResponse.COUNTRY, equalTo(country)));
         restAssuredThat(response -> response.body(LocationResponse.FIRST_PLACE_NAME, equalTo(placeName)));
+    }
+
+    @Given("Get list user with parameter page {int}")
+    public void getListUserWithParameterPage(int arg0) {
+        
+    }
+
+    @When("Send request get list users")
+    public void sendRequestGetListUsers() {
+        
+    }
+
+    @Then("Staus code should be {int}")
+    public void stausCodeShouldBe(int arg0) {
     }
 }
