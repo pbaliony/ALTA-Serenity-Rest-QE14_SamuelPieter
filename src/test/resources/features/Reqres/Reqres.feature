@@ -1,3 +1,4 @@
+@Assignment
 Feature: Serenity Rest QE 14
 
 #Scenario1
