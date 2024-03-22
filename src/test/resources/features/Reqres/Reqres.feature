@@ -14,11 +14,12 @@ Feature: Serenity Rest QE 14
       | 2    | 200         |
 
 #Scenario2
-  Scenario:
+  Scenario: Create user with valid json
     Given Create user with valid json "CreateUser.json"
     When Send request create new user
     Then Status code should be 201
     And Response body name should be "Samuel Pieter" and job id is "QA Engineer"
+    And Validate Json Schema "CreateUserJsonSchema.json"
 
 #Scenario3
   Scenario Outline: Update user with valid JSON and user id
@@ -26,6 +27,7 @@ Feature: Serenity Rest QE 14
     When Send request update user
     Then Status code should be <status code>
     And Response body name should be "<name>" and job id is "<job>"
+    And Validate Json Schema "UpdateUserJsonSchema.json"
     Examples:
       | id | status code | name                    | job                   | json             |
       | 1  | 200         | Samuel Pieter (Update)  | QA Engineer (Update)  | UpdateUser.json  |
