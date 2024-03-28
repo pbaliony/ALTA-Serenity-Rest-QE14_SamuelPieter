@@ -21,11 +21,18 @@ public class ReqresAPI {
 
     public static String DELETE_USER = Constants.BASE_URL+"/api/users/{id}";
 
+    public static String LIST_RESOURCE = Constants.BASE_URL+"/api/unknown/{page}";
+
     @Step("Get list user with valid parameter page")
     public void getListUser(int page) {
         SerenityRest.given()
                 .pathParam("page", page);
     }
+    @Step ("Get list resource with valid parameter page")
+    public void getListResource (int page){
+        SerenityRest.given().pathParam("page",page);
+    }
+
     @Step ("Post create user with valid JSON")
     public void postCreateUser(File json){
         SerenityRest.given().contentType(ContentType.JSON).body(json);

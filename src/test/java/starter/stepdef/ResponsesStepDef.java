@@ -9,10 +9,7 @@ import starter.utils.Constants;
 import java.io.File;
 
 public class ResponsesStepDef {
-    @Then("Status code should be {int}")
-    public void statusCodeShouldBe(int statusCode) {
-        SerenityRest.then().statusCode(statusCode);
-    }
+
 
     @And("Validate Json Schema {string}")
     public void validateJsonSchema(String json) {

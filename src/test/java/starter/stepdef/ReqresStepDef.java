@@ -31,45 +31,5 @@ public class ReqresStepDef {
 
     @And("Response body page should be {int}")
     public void responseBodyPageShouldBe(int page) { SerenityRest.and().body(ReqresResponses.PAGE, equalTo(page));
-
     }
-
-    @Given("Create user with valid json {string}")
-    public void createUserWithValidJson(String json) {
-        File jsonFile =new  File(Constants.REQ_BODY+json);
-        reqresAPI.postCreateUser(jsonFile);
-    }
-
-    @When("Send request create new user")
-    public void sendRequestCreateNewUser() {
-        SerenityRest.when().post(ReqresAPI.CREATE_USER);
-
-    }
-    @And("Response body name should be {string} and job id is {string}")
-    public void responseBodyNameShouldBeAndJobIdIs(String name, String job) {
-        SerenityRest.and().body(ReqresResponses.NAME,equalTo(name)).body(ReqresResponses.JOB, equalTo(job));
-    }
-
-    @Given("Update user with valid JSON {string} and user id {int}")
-    public void updateUserWithValidJSONAndUser(String json, int id) {
-        File jsonFile = new File(Constants.REQ_BODY+json);
-        reqresAPI.putUpdateUser(id, jsonFile);}
-
-    @When("Send request update user")
-    public void sendRequestUpdateUser() {
-        SerenityRest.when().put(ReqresAPI.UPDATE_USER);
-    }
-
-    @Given("Delete user with valid user id {int}")
-    public void deleteUserWithValidUserId(int id) {
-        reqresAPI.deleteUser(id);
-    }
-
-    @When("Send request delete user")
-    public void sendRequestDeleteUser() {
-        SerenityRest.when().delete(ReqresAPI.DELETE_USER);
-    }
-
-
-
 }
